@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import Select from "react-select";
 
-export default function FilterBox({ handleChangeSearchInput, handleSelect }) {
+const gendersList = [
+  { value: "All", label: "All" },
+  { value: "Female", label: "Female" },
+  { value: "Male", label: "Male" },
+  { value: "Bigender", label: "Bigender" },
+];
+
+export default function FilterBox({
+  selectedGender,
+  setselectedGender,
+  searchInputValue,
+  setsearchInputValue,
+}) {
   return (
     <div className="filterbox">
       <div className="inputContainer">
         <div className="inputLabel">First Name</div>
         <input
           placeholder="Enter first name"
-          onChange={handleChangeSearchInput}
+          value={searchInputValue}
+          onChange={(e) => {
+            setsearchInputValue(e.target.value);
+          }}
         />
       </div>
       <div className="genderSelectorContainer">
-        <label for="gender">Gender:</label>
-
-        <select name="gender" id="gender" onChange={handleSelect}>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="all">all</option>
-        </select>
+        <Select
+          value={selectedGender}
+          onChange={setselectedGender}
+          options={gendersList}
+        />
       </div>
     </div>
   );
