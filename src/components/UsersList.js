@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { mockUsers } from "../mockData/users";
 import FilterBox from "./FilterBox";
 import UserBox from "./UserBox";

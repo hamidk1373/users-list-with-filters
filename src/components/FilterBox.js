@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FilterBox({ handleChangeSearchInput }) {
+export default function FilterBox({ handleChangeSearchInput, handleSelect }) {
   return (
     <div className="filterbox">
       <div className="inputContainer">
@@ -10,7 +10,15 @@ export default function FilterBox({ handleChangeSearchInput }) {
           onChange={handleChangeSearchInput}
         />
       </div>
-      <div className="genderSelectorContainer"></div>
+      <div className="genderSelectorContainer">
+        <label for="gender">Gender:</label>
+
+        <select name="gender" id="gender" onChange={handleSelect}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="all">all</option>
+        </select>
+      </div>
     </div>
   );
 }
